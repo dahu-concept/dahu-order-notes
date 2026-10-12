@@ -1,0 +1,69 @@
+# Copyright (C) 2026 Hugo Vial-Jaime
+# This file is distributed under the MIT licence.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dahu Order Notes\n"
+"Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-10-08 09:36+0000\n"
+"X-Domain: dahu-order-notes\n"
+
+#: includes/class-dahu-order-notes-settings.php:255
+msgid "Additional automatic notes"
+msgstr ""
+
+#: dahu-order-notes.php:142
+msgid "By Hugo Vial-Jaime — Dahu-Concept"
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:242
+msgid "Customer note header colour"
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:206
+msgid "Dahu Order Notes highlights the order notes a person actually typed, so they stand out from the ones WooCommerce and its extensions generate on their own."
+msgstr ""
+
+#: dahu-order-notes.php:99
+msgid "Dahu Order Notes requires WooCommerce to be installed and active."
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:229
+msgid "Hand-written note colour"
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:222
+msgid "Highlight hand-written private notes"
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:215
+msgid "Highlighting"
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:264
+msgid "One per line. Any note starting with one of these phrases is treated as automatic. Use this for notes added by other plugins — shipping, invoicing, payment gateways. Plain text, not regular expressions."
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:108 includes/class-dahu-order-notes-settings.php:109 includes/class-dahu-order-notes-settings.php:203
+msgid "Order notes"
+msgstr ""
+
+#: dahu-order-notes.php:147
+msgid "Plugin website"
+msgstr ""
+
+#: dahu-order-notes.php:114
+msgid "Settings"
+msgstr ""
+
+#. translators: %s: plugin version number. */
+#: dahu-order-notes.php:136
+msgid "Version %s"
+msgstr ""
+
+#: includes/class-dahu-order-notes-settings.php:197
+msgid "You are not allowed to access this page."
+msgstr ""
+
