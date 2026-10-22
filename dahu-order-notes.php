@@ -151,3 +151,90 @@ add_filter(
 	10,
 	2
 );
+
+/*
+ * The welcome screen, shown once just after activation.
+ *
+ * Registered here rather than inside the admin include, because the
+ * activation flag has to be set whatever else is loaded.
+ */
+require_once DAHU_ORDER_NOTES_PATH . 'includes/dahu-welcome.php';
+
+/*
+ * The flag, not a redirect: an activation hook that redirects breaks bulk
+ * activation and WP-CLI, which activate several plugins in one request. The
+ * welcome screen reads the flag on the next page load, where a redirect is
+ * safe, and clears it when several plugins were activated together.
+ */
+register_activation_hook(
+	__FILE__,
+	static function () {
+		Dahu_Welcome::mark_activated( 'dahu-order-notes' );
+	}
+);
+
+add_action(
+	'init',
+	static function () {
+		Dahu_Welcome::register(
+			array(
+				'slug'       => 'dahu-order-notes',
+				'name'       => __( 'Order notes', 'dahu-order-notes' ),
+				'tagline'    => __( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'dahu-order-notes' ),
+				'file'       => DAHU_ORDER_NOTES_FILE,
+				'version'    => DAHU_ORDER_NOTES_VERSION,
+				'textdomain' => 'dahu-order-notes',
+				/*
+				 * Les mots de l'accueil viennent d'ici : le fichier partagé est
+				 * recopié dans toute la famille et ne peut donc porter aucun
+				 * domaine de traduction.
+				 */
+				'strings'    => array(
+					'next'   => __( 'Next', 'dahu-order-notes' ),
+					'done'   => __( 'Done', 'dahu-order-notes' ),
+					'skip'   => __( 'Skip', 'dahu-order-notes' ),
+					'of'     => __( 'of', 'dahu-order-notes' ),
+					'denied' => __( 'You are not allowed to view this page.', 'dahu-order-notes' ),
+				),
+				'points'     => array(
+				array(
+					'title' => __( 'Yours first', 'dahu-order-notes' ),
+					'text'  => __( 'Private notes somebody typed are highlighted.', 'dahu-order-notes' ),
+				),
+				array(
+					'title' => __( 'Customer notes marked', 'dahu-order-notes' ),
+					'text'  => __( 'The ones the customer can see are told apart at a glance.', 'dahu-order-notes' ),
+				),
+				array(
+					'title' => __( 'Your colours', 'dahu-order-notes' ),
+					'text'  => __( 'Both are yours to set.', 'dahu-order-notes' ),
+				),
+				),
+
+				/*
+				 * The one-time tour. Every selector points at a control the settings
+				 * screen always renders, whatever the saved options are: a step whose
+				 * target is missing is skipped without a sound.
+				 */
+				'tour_screen' => 'woocommerce_page_dahu-order-notes',
+				'tour'        => array(
+					array(
+						'selector' => 'input[name="dahu_order_notes_options[enabled]"]',
+						'title'    => __( 'Switch it on or off', 'dahu-order-notes' ),
+						'text'     => __( 'Hand-written private notes are highlighted while this is ticked.', 'dahu-order-notes' ),
+					),
+					array(
+						'selector' => '#dahu-order-notes-handwritten-bg',
+						'title'    => __( 'Pick your colours', 'dahu-order-notes' ),
+						'text'     => __( 'One colour for your notes, one for the customer notes header.', 'dahu-order-notes' ),
+					),
+					array(
+						'selector' => '#dahu-order-notes-custom-prefixes',
+						'title'    => __( 'Teach it your plugins', 'dahu-order-notes' ),
+						'text'     => __( 'One phrase per line: notes starting with it count as automatic.', 'dahu-order-notes' ),
+					),
+				),
+			)
+		);
+	}
+);

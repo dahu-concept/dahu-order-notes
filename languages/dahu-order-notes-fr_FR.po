@@ -6,63 +6,131 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"PO-Revision-Date: 2026-10-08 11:25+0000\n"
+"PO-Revision-Date: 2026-10-21 10:19+0000\n"
 "X-Generator: dahu i18n-build\n"
 
-#: includes/class-dahu-order-notes-settings.php:255
+#: \includes\class-dahu-order-notes-settings.php:269
 msgid "Additional automatic notes"
 msgstr "Notes automatiques supplémentaires"
 
-#: dahu-order-notes.php:142
+#: \dahu-order-notes.php:210
+msgid "Both are yours to set."
+msgstr "Les deux sont à régler par vous."
+
+#: \dahu-order-notes.php:142
 msgid "By Hugo Vial-Jaime — Dahu-Concept"
 msgstr "Par Hugo Vial-Jaime — Dahu-Concept"
 
-#: includes/class-dahu-order-notes-settings.php:242
+#: \includes\class-dahu-order-notes-settings.php:256
 msgid "Customer note header colour"
 msgstr "Couleur de l’en-tête des notes client"
 
-#: includes/class-dahu-order-notes-settings.php:206
-msgid "Dahu Order Notes highlights the order notes a person actually typed, so they stand out from the ones WooCommerce and its extensions generate on their own."
-msgstr "Dahu Order Notes met en évidence les notes de commande qu’une personne a réellement écrites, pour qu’elles se distinguent de celles que WooCommerce et ses extensions ajoutent d’elles-mêmes."
+#: \dahu-order-notes.php:205
+msgid "Customer notes marked"
+msgstr "Notes client repérées"
 
-#: dahu-order-notes.php:99
+#: \dahu-order-notes.php:99
 msgid "Dahu Order Notes requires WooCommerce to be installed and active."
 msgstr "Dahu Order Notes nécessite que WooCommerce soit installé et actif."
 
-#: includes/class-dahu-order-notes-settings.php:229
+#: \dahu-order-notes.php:194
+msgid "Done"
+msgstr "Terminé"
+
+#: \includes\class-dahu-order-notes-settings.php:243
 msgid "Hand-written note colour"
 msgstr "Couleur des notes écrites à la main"
 
-#: includes/class-dahu-order-notes-settings.php:222
+#: \dahu-order-notes.php:224
+msgid "Hand-written private notes are highlighted while this is ticked."
+msgstr "Les notes privées écrites à la main sont mises en évidence tant que c'est coché."
+
+#: \includes\class-dahu-order-notes-settings.php:236
 msgid "Highlight hand-written private notes"
 msgstr "Mettre en évidence les notes privées écrites à la main"
 
-#: includes/class-dahu-order-notes-settings.php:215
+#: \includes\class-dahu-order-notes-settings.php:229
 msgid "Highlighting"
 msgstr "Mise en évidence"
 
-#: includes/class-dahu-order-notes-settings.php:264
-msgid "One per line. Any note starting with one of these phrases is treated as automatic. Use this for notes added by other plugins — shipping, invoicing, payment gateways. Plain text, not regular expressions."
-msgstr "Une par ligne. Toute note commençant par l’une de ces phrases est considérée comme automatique. À utiliser pour les notes posées par d’autres extensions : expédition, facturation, passerelles de paiement. Du texte simple, pas des expressions régulières."
+#: \dahu-order-notes.php:183 \includes\class-dahu-order-notes-settings.php:217
+msgid "Makes the notes a human wrote stand out from the ones the shop generated."
+msgstr "Distingue les notes écrites par un humain de celles que la boutique génère."
 
-#: includes/class-dahu-order-notes-settings.php:108 includes/class-dahu-order-notes-settings.php:109 includes/class-dahu-order-notes-settings.php:203
+#: \dahu-order-notes.php:193
+msgid "Next"
+msgstr "Suivant"
+
+#: \dahu-order-notes.php:229
+msgid "One colour for your notes, one for the customer notes header."
+msgstr "Une couleur pour vos notes, une pour l'en-tête des notes client."
+
+#: \includes\class-dahu-order-notes-settings.php:278
+msgid "One per line. A note starting with one of these phrases is treated as automatic."
+msgstr "Une par ligne. Une note qui commence par l'une de ces phrases compte comme automatique."
+
+#: \dahu-order-notes.php:234
+msgid "One phrase per line: notes starting with it count as automatic."
+msgstr "Une phrase par ligne : les notes qui commencent par elle comptent comme automatiques."
+
+#: \dahu-order-notes.php:182 \includes\class-dahu-order-notes-settings.php:108 \includes\class-dahu-order-notes-settings.php:109 \includes\class-dahu-order-notes-settings.php:216
 msgid "Order notes"
 msgstr "Notes de commande"
 
-#: dahu-order-notes.php:147
+#: \dahu-order-notes.php:228
+msgid "Pick your colours"
+msgstr "Choisissez vos couleurs"
+
+#: \dahu-order-notes.php:147
 msgid "Plugin website"
 msgstr "Site de l’extension"
 
-#: dahu-order-notes.php:114
+#: \dahu-order-notes.php:202
+msgid "Private notes somebody typed are highlighted."
+msgstr "Les notes privées saisies par quelqu’un sont mises en évidence."
+
+#: \dahu-order-notes.php:114
 msgid "Settings"
 msgstr "Réglages"
 
+#: \dahu-order-notes.php:195
+msgid "Skip"
+msgstr "Passer"
+
+#: \dahu-order-notes.php:223
+msgid "Switch it on or off"
+msgstr "Activez ou désactivez"
+
+#: \dahu-order-notes.php:233
+msgid "Teach it your plugins"
+msgstr "Apprenez-lui vos extensions"
+
+#: \dahu-order-notes.php:206
+msgid "The ones the customer can see are told apart at a glance."
+msgstr "Celles que le client voit se distinguent d’un coup d’œil."
+
 #. translators: %s: plugin version number. */
-#: dahu-order-notes.php:136
+#: \dahu-order-notes.php:136
 msgid "Version %s"
 msgstr "Version %s"
 
-#: includes/class-dahu-order-notes-settings.php:197
+#: \includes\class-dahu-order-notes-settings.php:209
 msgid "You are not allowed to access this page."
 msgstr "Vous n’avez pas l’autorisation d’accéder à cette page."
+
+#: \dahu-order-notes.php:197
+msgid "You are not allowed to view this page."
+msgstr "Vous n’avez pas l’autorisation de voir cette page."
+
+#: \dahu-order-notes.php:209
+msgid "Your colours"
+msgstr "Vos couleurs"
+
+#: \dahu-order-notes.php:201
+msgid "Yours first"
+msgstr "Les vôtres d’abord"
+
+#: \dahu-order-notes.php:196
+msgid "of"
+msgstr "sur"
 

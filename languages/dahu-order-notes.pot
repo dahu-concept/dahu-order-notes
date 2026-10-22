@@ -7,63 +7,131 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-10-08 09:36+0000\n"
+"PO-Revision-Date: 2026-10-21 10:16+0000\n"
 "X-Domain: dahu-order-notes\n"
 
-#: includes/class-dahu-order-notes-settings.php:255
+#: \includes\class-dahu-order-notes-settings.php:269
 msgid "Additional automatic notes"
 msgstr ""
 
-#: dahu-order-notes.php:142
+#: \dahu-order-notes.php:210
+msgid "Both are yours to set."
+msgstr ""
+
+#: \dahu-order-notes.php:142
 msgid "By Hugo Vial-Jaime — Dahu-Concept"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:242
+#: \includes\class-dahu-order-notes-settings.php:256
 msgid "Customer note header colour"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:206
-msgid "Dahu Order Notes highlights the order notes a person actually typed, so they stand out from the ones WooCommerce and its extensions generate on their own."
+#: \dahu-order-notes.php:205
+msgid "Customer notes marked"
 msgstr ""
 
-#: dahu-order-notes.php:99
+#: \dahu-order-notes.php:99
 msgid "Dahu Order Notes requires WooCommerce to be installed and active."
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:229
+#: \dahu-order-notes.php:194
+msgid "Done"
+msgstr ""
+
+#: \includes\class-dahu-order-notes-settings.php:243
 msgid "Hand-written note colour"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:222
+#: \dahu-order-notes.php:224
+msgid "Hand-written private notes are highlighted while this is ticked."
+msgstr ""
+
+#: \includes\class-dahu-order-notes-settings.php:236
 msgid "Highlight hand-written private notes"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:215
+#: \includes\class-dahu-order-notes-settings.php:229
 msgid "Highlighting"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:264
-msgid "One per line. Any note starting with one of these phrases is treated as automatic. Use this for notes added by other plugins — shipping, invoicing, payment gateways. Plain text, not regular expressions."
+#: \dahu-order-notes.php:183 \includes\class-dahu-order-notes-settings.php:217
+msgid "Makes the notes a human wrote stand out from the ones the shop generated."
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:108 includes/class-dahu-order-notes-settings.php:109 includes/class-dahu-order-notes-settings.php:203
+#: \dahu-order-notes.php:193
+msgid "Next"
+msgstr ""
+
+#: \dahu-order-notes.php:229
+msgid "One colour for your notes, one for the customer notes header."
+msgstr ""
+
+#: \includes\class-dahu-order-notes-settings.php:278
+msgid "One per line. A note starting with one of these phrases is treated as automatic."
+msgstr ""
+
+#: \dahu-order-notes.php:234
+msgid "One phrase per line: notes starting with it count as automatic."
+msgstr ""
+
+#: \dahu-order-notes.php:182 \includes\class-dahu-order-notes-settings.php:108 \includes\class-dahu-order-notes-settings.php:109 \includes\class-dahu-order-notes-settings.php:216
 msgid "Order notes"
 msgstr ""
 
-#: dahu-order-notes.php:147
+#: \dahu-order-notes.php:228
+msgid "Pick your colours"
+msgstr ""
+
+#: \dahu-order-notes.php:147
 msgid "Plugin website"
 msgstr ""
 
-#: dahu-order-notes.php:114
+#: \dahu-order-notes.php:202
+msgid "Private notes somebody typed are highlighted."
+msgstr ""
+
+#: \dahu-order-notes.php:114
 msgid "Settings"
 msgstr ""
 
+#: \dahu-order-notes.php:195
+msgid "Skip"
+msgstr ""
+
+#: \dahu-order-notes.php:223
+msgid "Switch it on or off"
+msgstr ""
+
+#: \dahu-order-notes.php:233
+msgid "Teach it your plugins"
+msgstr ""
+
+#: \dahu-order-notes.php:206
+msgid "The ones the customer can see are told apart at a glance."
+msgstr ""
+
 #. translators: %s: plugin version number. */
-#: dahu-order-notes.php:136
+#: \dahu-order-notes.php:136
 msgid "Version %s"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:197
+#: \includes\class-dahu-order-notes-settings.php:209
 msgid "You are not allowed to access this page."
+msgstr ""
+
+#: \dahu-order-notes.php:197
+msgid "You are not allowed to view this page."
+msgstr ""
+
+#: \dahu-order-notes.php:209
+msgid "Your colours"
+msgstr ""
+
+#: \dahu-order-notes.php:201
+msgid "Yours first"
+msgstr ""
+
+#: \dahu-order-notes.php:196
+msgid "of"
 msgstr ""
 

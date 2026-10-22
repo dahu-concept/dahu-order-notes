@@ -125,10 +125,22 @@ class Dahu_Order_Notes_Settings {
 			return;
 		}
 
+		// The family sheet first, and its own second: the plugin's own rules
+		// are written to sit on top of the shared components, so the order is
+		// a dependency and not a hope. One handle across the family -- the
+		// file is byte-identical everywhere, so whichever plugin loads it
+		// first serves all of them.
+		wp_enqueue_style(
+			'dahu-ui',
+			plugins_url( 'assets/css/dahu-ui.css', DAHU_ORDER_NOTES_FILE ),
+			array(),
+			DAHU_ORDER_NOTES_VERSION
+		);
+
 		wp_enqueue_style(
 			'dahu-order-notes-admin',
 			plugins_url( 'assets/css/admin.css', DAHU_ORDER_NOTES_FILE ),
-			array(),
+			array( 'dahu-ui' ),
 			DAHU_ORDER_NOTES_VERSION
 		);
 	}
@@ -199,17 +211,18 @@ class Dahu_Order_Notes_Settings {
 
 		$options = self::get();
 		?>
-		<div class="wrap">
-			<h1><?php esc_html_e( 'Order notes', 'dahu-order-notes' ); ?></h1>
+		<div class="wrap dahu-ui">
+			<div class="dahu-ui-head">
+				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Order notes', 'dahu-order-notes' ); ?></h1>
+				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'dahu-order-notes' ); ?></p>
+			</div>
 
-			<p class="dahu-order-notes__intro">
-				<?php esc_html_e( 'Dahu Order Notes highlights the order notes a person actually typed, so they stand out from the ones WooCommerce and its extensions generate on their own.', 'dahu-order-notes' ); ?>
-			</p>
 			<hr class="wp-header-end">
 
 			<form method="post" action="options.php">
 				<?php settings_fields( self::GROUP ); ?>
 
+				<div class="dahu-ui-card">
 				<table class="form-table" role="presentation">
 					<tbody>
 						<tr>
@@ -262,14 +275,15 @@ class Dahu_Order_Notes_Settings {
 									rows="6"
 									name="<?php echo esc_attr( self::OPTION ); ?>[custom_prefixes]"><?php echo esc_textarea( $options['custom_prefixes'] ); ?></textarea>
 								<p class="description">
-									<?php esc_html_e( 'One per line. Any note starting with one of these phrases is treated as automatic. Use this for notes added by other plugins — shipping, invoicing, payment gateways. Plain text, not regular expressions.', 'dahu-order-notes' ); ?>
+									<?php esc_html_e( 'One per line. A note starting with one of these phrases is treated as automatic.', 'dahu-order-notes' ); ?>
 								</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
+				</div>
 
-				<?php submit_button(); ?>
+				<?php submit_button( null, 'dahu-ui-btn dahu-ui-btn--go' ); ?>
 			</form>
 		</div>
 		<?php
