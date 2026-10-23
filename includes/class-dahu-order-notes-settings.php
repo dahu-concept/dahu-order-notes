@@ -168,6 +168,19 @@ class Dahu_Order_Notes_Settings {
 	 * @param mixed $input Raw submitted value.
 	 * @return array<string, mixed>
 	 */
+	/*
+	 * NO wp_unslash() HERE, AND THAT IS THE FIX.
+	 *
+	 * `wp-admin/options.php` unslashes what it hands to a sanitize_callback,
+	 * so what arrives already holds real backslashes. Unslashing again ate one
+	 * the shop owner had typed — and the prefixes below are matched as
+	 * LITERAL text, so a pattern that lost a backslash stopped matching
+	 * anything, for good. Re-saving the same text appeared to work, which gave
+	 * the defect the look of an accident with no cause.
+	 *
+	 * It also ran twice on a first save: WordPress sanitises an option once in
+	 * `update_option()` and again in `add_option()` when nothing is stored yet.
+	 */
 	public static function sanitize( $input ) {
 
 		$defaults = self::defaults();
@@ -184,7 +197,7 @@ class Dahu_Order_Notes_Settings {
 				continue;
 			}
 
-			$colour = sanitize_hex_color( wp_unslash( $input[ $key ] ) );
+			$colour = sanitize_hex_color( $input[ $key ] );
 
 			if ( $colour ) {
 				$clean[ $key ] = $colour;
@@ -192,7 +205,7 @@ class Dahu_Order_Notes_Settings {
 		}
 
 		if ( isset( $input['custom_prefixes'] ) ) {
-			$clean['custom_prefixes'] = sanitize_textarea_field( wp_unslash( $input['custom_prefixes'] ) );
+			$clean['custom_prefixes'] = sanitize_textarea_field( $input['custom_prefixes'] );
 		}
 
 		return $clean;

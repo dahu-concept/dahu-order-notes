@@ -3,7 +3,7 @@
  * Plugin Name:       Dahu Order Notes
  * Plugin URI:        https://dahu-concept.fr
  * Description:       Visually separates the order notes a human actually wrote from the ones WooCommerce and its extensions generate automatically.
- * Version:           2.0.0
+ * Version:           2.1.0
  * Author:            Hugo Vial-Jaime
  * Author URI:        mailto:contact@dahu-concept.fr
  * License:           MIT
@@ -20,7 +20,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAHU_ORDER_NOTES_VERSION', '2.0.0' );
+define( 'DAHU_ORDER_NOTES_VERSION', '2.1.0' );
 define( 'DAHU_ORDER_NOTES_FILE', __FILE__ );
 define( 'DAHU_ORDER_NOTES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DAHU_ORDER_NOTES_SETTINGS_PAGE', 'dahu-order-notes' );
@@ -184,10 +184,19 @@ add_action(
 				'file'       => DAHU_ORDER_NOTES_FILE,
 				'version'    => DAHU_ORDER_NOTES_VERSION,
 				'textdomain' => 'dahu-order-notes',
+				'mark'       => array(
+					'view'  => '0 0 112 112',
+					'paths' => array(
+						'M18 6 L74 6 L98 30 L98 106 L18 106 Z',
+						'M74 6 L74 30 L98 30',
+						'M34 54 L82 54 M34 70 L82 70',
+						'M34 86 L62 86',
+					),
+				),
 				/*
-				 * Les mots de l'accueil viennent d'ici : le fichier partagé est
-				 * recopié dans toute la famille et ne peut donc porter aucun
-				 * domaine de traduction.
+				 * The welcome screen's words come from here: the shared file is
+				 * copied byte for byte across the whole family, so it can carry
+				 * no text domain of its own.
 				 */
 				'strings'    => array(
 					'next'   => __( 'Next', 'dahu-order-notes' ),

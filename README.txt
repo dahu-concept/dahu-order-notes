@@ -4,7 +4,7 @@ Tags: woocommerce, order notes, admin, orders, workflow
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -90,6 +90,9 @@ Yes.
 2. The settings screen.
 
 == Changelog ==
+
+= 2.1.0 =
+* The activation screen now opens on the plugin's own mark rather than its initials, and the banner carries the same drawing as a watermark.
 
 = 2.0.0 =
 * First public release.
