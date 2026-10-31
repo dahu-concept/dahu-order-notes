@@ -110,8 +110,11 @@ class Dahu_Order_Notes_Detector {
 		$patterns = array();
 
 		foreach ( array_merge( self::$core_templates, self::$legacy_templates ) as $template ) {
-			// phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- deliberately reading WooCommerce's own translations.
-			$translated = __( $template, 'woocommerce' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+			// Both sniffs are named on the SAME line, deliberately. A phpcs:ignore
+			// on the line above and another at the end of the line do not add
+			// up: the trailing one wins and the first is simply lost, which is
+			// why TextDomainMismatch kept being reported here.
+			$translated = __( $template, 'woocommerce' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch, WordPress.WP.I18n.NonSingularStringLiteralText -- deliberately reading WooCommerce's own translations, so the shop's generated notes are recognised in the shop's language.
 			$compiled   = self::template_to_regex( $translated );
 
 			if ( $compiled ) {

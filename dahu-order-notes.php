@@ -5,7 +5,7 @@
  * Description:       Visually separates the order notes a human actually wrote from the ones WooCommerce and its extensions generate automatically.
  * Version:           2.1.0
  * Author:            Hugo Vial-Jaime
- * Author URI:        mailto:contact@dahu-concept.fr
+ * Author URI:        https://dahu-concept.fr
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
  * Text Domain:       dahu-order-notes
@@ -13,7 +13,7 @@
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * WC requires at least: 7.0
- * WC tested up to:   11.1
+ * WC tested up to:   11.2
  *
  * @package DahuOrderNotes
  */

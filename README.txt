@@ -1,5 +1,5 @@
 === Dahu Order Notes ===
-Contributors: hugovialjaime
+Contributors: dahuconcept
 Tags: woocommerce, order notes, admin, orders, workflow
 Requires at least: 6.0
 Tested up to: 7.1
