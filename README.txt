@@ -1,6 +1,6 @@
 === Dahu Order Notes ===
 Contributors: dahuconcept
-Tags: woocommerce, order notes, admin, orders, workflow
+Tags: order notes, internal notes, customer notes, orders, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
