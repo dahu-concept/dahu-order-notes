@@ -19,15 +19,15 @@ delete_option( 'ubac_welcome_pending_ubac-notes' );
 delete_option( 'ubac_welcome_tour_ubac-notes' );
 
 if ( is_multisite() ) {
-	$site_ids = get_sites(
+	$ubac_notes_site_ids = get_sites(
 		array(
 			'fields' => 'ids',
 			'number' => 0,
 		)
 	);
 
-	foreach ( $site_ids as $site_id ) {
-		switch_to_blog( $site_id );
+	foreach ( $ubac_notes_site_ids as $ubac_notes_site_id ) {
+		switch_to_blog( $ubac_notes_site_id );
 		delete_option( 'ubac_notes_options' );
 		delete_option( 'ubac_welcome_seen_ubac-notes' );
 		delete_option( 'ubac_welcome_pending_ubac-notes' );
