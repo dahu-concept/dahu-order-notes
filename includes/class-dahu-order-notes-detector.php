@@ -56,6 +56,8 @@ class Dahu_Order_Notes_Detector {
 	 */
 	private static function core_templates() {
 
+		// phpcs:disable WordPress.WP.I18n.TextDomainMismatch, WordPress.WP.I18n.MissingTranslatorsComment -- these are WooCommerce's own strings, read through WooCommerce's own domain on purpose: translating them under ours would match nothing. The placeholders are WooCommerce's too, so a translators comment here would describe someone else's string.
+
 		return array(
 
 			// Status transitions. The first is by far the most common note on any
@@ -95,6 +97,8 @@ class Dahu_Order_Notes_Detector {
 			'Download permissions were reset manually.' => __( 'Download permissions were reset manually.', 'woocommerce' ),
 			'Personal data removed.' => __( 'Personal data removed.', 'woocommerce' ),
 		);
+
+		// phpcs:enable WordPress.WP.I18n.TextDomainMismatch, WordPress.WP.I18n.MissingTranslatorsComment
 	}
 
 	/**
@@ -109,10 +113,14 @@ class Dahu_Order_Notes_Detector {
 	 */
 	private static function legacy_templates() {
 
+		// phpcs:disable WordPress.WP.I18n.TextDomainMismatch, WordPress.WP.I18n.MissingTranslatorsComment -- these are WooCommerce's own strings, read through WooCommerce's own domain on purpose: translating them under ours would match nothing. The placeholders are WooCommerce's too, so a translators comment here would describe someone else's string.
+
 		return array(
 			'Order partially refunded.' => __( 'Order partially refunded.', 'woocommerce' ),
 			'Refunded %1$s%2$s' => __( 'Refunded %1$s%2$s', 'woocommerce' ),
 		);
+
+		// phpcs:enable WordPress.WP.I18n.TextDomainMismatch, WordPress.WP.I18n.MissingTranslatorsComment
 	}
 
 	/**
