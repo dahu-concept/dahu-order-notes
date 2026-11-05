@@ -1,5 +1,5 @@
 === Ubac Order Notes ===
-Contributors: ubacconcept
+Contributors: dahuconcept
 Tags: order notes, internal notes, customer notes, orders, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
