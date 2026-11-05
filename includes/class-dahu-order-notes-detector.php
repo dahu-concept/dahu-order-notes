@@ -32,54 +32,70 @@ class Dahu_Order_Notes_Detector {
 	private static $patterns = null;
 
 	/**
-	 * Source strings, exactly as they appear in WooCommerce core.
+	 * WooCommerce's own note wordings, each mapped to its translation.
 	 *
-	 * Each one is passed through the `woocommerce` text domain at runtime, so
-	 * a French shop matches the French wording, a German shop the German one,
-	 * and so on. A string WooCommerce no longer uses simply never matches,
-	 * which is harmless.
+	 * The key is the source string exactly as it appears in WooCommerce core;
+	 * the value is that same string read through the `woocommerce` text
+	 * domain, so a French shop matches the French wording, a German shop the
+	 * German one, and so on. A string WooCommerce no longer uses simply never
+	 * matches, which is harmless.
 	 *
-	 * @var string[]
+	 * WHY THE STRING IS WRITTEN TWICE ON EVERY LINE. This used to be a plain
+	 * list of sources, translated in a loop by `__( $template, 'woocommerce' )`.
+	 * That is a variable where gettext wants a literal, and the directory's
+	 * review named it: the translation parser reads the code without running
+	 * it, so it sees `$template` and nothing to translate. Written out, every
+	 * line is readable by the parser. The cost is that a key could drift from
+	 * the literal beside it, which is why `t-order-notes-gabarits.php` reads
+	 * this file's tokens and holds the two equal.
+	 *
+	 * It is a method and not a property because a static property cannot hold
+	 * a function call.
+	 *
+	 * @return array<string,string> Source string => translated string.
 	 */
-	private static $core_templates = array(
+	private static function core_templates() {
 
-		// Status transitions. The first is by far the most common note on any
-		// shop, and the one most often signed with a human's name — which is
-		// exactly why matching on content matters.
-		'Order status changed from %1$s to %2$s.',
-		'Order status set to %s.',
-		'Order status set to refunded. To return funds to the customer you will need to issue a refund through your payment gateway.',
-		'Error during status transition.',
-		'Update status event failed.',
+		return array(
 
-		// Stock.
-		'Stock levels reduced:',
-		'Stock levels increased:',
-		'Adjusted stock: %s',
-		'Adjusted stock: %s.',
-		'Item #%1$s stock increased from %2$s to %3$s.',
-		'Unable to reduce stock for item %s.',
-		'Unable to restore stock for item %s.',
-		'Stock hold of %1$s minutes applied to: %2$s',
+			// Status transitions. The first is by far the most common note on any
+			// shop, and the one most often signed with a human's name — which is
+			// exactly why matching on content matters.
+			'Order status changed from %1$s to %2$s.' => __( 'Order status changed from %1$s to %2$s.', 'woocommerce' ),
+			'Order status set to %s.' => __( 'Order status set to %s.', 'woocommerce' ),
+			'Order status set to refunded. To return funds to the customer you will need to issue a refund through your payment gateway.' => __( 'Order status set to refunded. To return funds to the customer you will need to issue a refund through your payment gateway.', 'woocommerce' ),
+			'Error during status transition.' => __( 'Error during status transition.', 'woocommerce' ),
+			'Update status event failed.' => __( 'Update status event failed.', 'woocommerce' ),
 
-		// Line items and coupons, written when an order is edited.
-		'Added line items: %s',
-		'Deleted %s',
-		'Deleted %1$s and adjusted stock (%2$s)',
-		'Coupon applied: "%s".',
-		'Coupon removed: "%s".',
+			// Stock.
+			'Stock levels reduced:' => __( 'Stock levels reduced:', 'woocommerce' ),
+			'Stock levels increased:' => __( 'Stock levels increased:', 'woocommerce' ),
+			'Adjusted stock: %s' => __( 'Adjusted stock: %s', 'woocommerce' ),
+			'Adjusted stock: %s.' => __( 'Adjusted stock: %s.', 'woocommerce' ),
+			'Item #%1$s stock increased from %2$s to %3$s.' => __( 'Item #%1$s stock increased from %2$s to %3$s.', 'woocommerce' ),
+			'Unable to reduce stock for item %s.' => __( 'Unable to reduce stock for item %s.', 'woocommerce' ),
+			'Unable to restore stock for item %s.' => __( 'Unable to restore stock for item %s.', 'woocommerce' ),
+			'Stock hold of %1$s minutes applied to: %2$s' => __( 'Stock hold of %1$s minutes applied to: %2$s', 'woocommerce' ),
 
-		// Payment and refunds.
-		'Payment complete event failed.',
-		'Refunded %1$s - Refund ID: %2$s',
-		'Order fully refunded.',
+			// Line items and coupons, written when an order is edited.
+			'Added line items: %s' => __( 'Added line items: %s', 'woocommerce' ),
+			'Deleted %s' => __( 'Deleted %s', 'woocommerce' ),
+			'Deleted %1$s and adjusted stock (%2$s)' => __( 'Deleted %1$s and adjusted stock (%2$s)', 'woocommerce' ),
+			'Coupon applied: "%s".' => __( 'Coupon applied: "%s".', 'woocommerce' ),
+			'Coupon removed: "%s".' => __( 'Coupon removed: "%s".', 'woocommerce' ),
 
-		// Mail and data.
-		'Email "%s" failed to send.',
-		'Order details manually sent to customer.',
-		'Download permissions were reset manually.',
-		'Personal data removed.',
-	);
+			// Payment and refunds.
+			'Payment complete event failed.' => __( 'Payment complete event failed.', 'woocommerce' ),
+			'Refunded %1$s - Refund ID: %2$s' => __( 'Refunded %1$s - Refund ID: %2$s', 'woocommerce' ),
+			'Order fully refunded.' => __( 'Order fully refunded.', 'woocommerce' ),
+
+			// Mail and data.
+			'Email "%s" failed to send.' => __( 'Email "%s" failed to send.', 'woocommerce' ),
+			'Order details manually sent to customer.' => __( 'Order details manually sent to customer.', 'woocommerce' ),
+			'Download permissions were reset manually.' => __( 'Download permissions were reset manually.', 'woocommerce' ),
+			'Personal data removed.' => __( 'Personal data removed.', 'woocommerce' ),
+		);
+	}
 
 	/**
 	 * Wordings WooCommerce used to write and no longer does.
@@ -89,12 +105,15 @@ class Dahu_Order_Notes_Detector {
 	 * gone from current WooCommerce" stays a fact about history rather than
 	 * looking like drift nobody noticed.
 	 *
-	 * @var string[]
+	 * @return array<string,string> Source string => translated string.
 	 */
-	private static $legacy_templates = array(
-		'Order partially refunded.',
-		'Refunded %1$s%2$s',
-	);
+	private static function legacy_templates() {
+
+		return array(
+			'Order partially refunded.' => __( 'Order partially refunded.', 'woocommerce' ),
+			'Refunded %1$s%2$s' => __( 'Refunded %1$s%2$s', 'woocommerce' ),
+		);
+	}
 
 	/**
 	 * Build — once — the list of compiled patterns.
@@ -109,13 +128,8 @@ class Dahu_Order_Notes_Detector {
 
 		$patterns = array();
 
-		foreach ( array_merge( self::$core_templates, self::$legacy_templates ) as $template ) {
-			// Both sniffs are named on the SAME line, deliberately. A phpcs:ignore
-			// on the line above and another at the end of the line do not add
-			// up: the trailing one wins and the first is simply lost, which is
-			// why TextDomainMismatch kept being reported here.
-			$translated = __( $template, 'woocommerce' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch, WordPress.WP.I18n.NonSingularStringLiteralText -- deliberately reading WooCommerce's own translations, so the shop's generated notes are recognised in the shop's language.
-			$compiled   = self::template_to_regex( $translated );
+		foreach ( array_merge( self::core_templates(), self::legacy_templates() ) as $template => $translated ) {
+			$compiled = self::template_to_regex( $translated );
 
 			if ( $compiled ) {
 				$patterns[] = $compiled;
