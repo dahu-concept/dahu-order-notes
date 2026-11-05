@@ -1,4 +1,4 @@
-# Dahu Order Notes
+# Ubac Order Notes
 
 Makes the WooCommerce order notes a person actually wrote stand out from the
 ones WooCommerce and its extensions generate on their own.
@@ -18,7 +18,7 @@ member is logged in*. Changing an order status from the admin screen produces a
 note attributed to that person, indistinguishable in the markup from a note they
 typed themselves.
 
-Dahu Order Notes identifies those, and leaves the hand-written ones highlighted.
+Ubac Order Notes identifies those, and leaves the hand-written ones highlighted.
 
 ## How detection works
 
@@ -45,7 +45,7 @@ non-breaking spaces, which French typography puts before every colon.
 - Locale-independent detection, rebuilt from WooCommerce's own translations
 - Configurable highlight colours
 - Additional phrases configurable from the settings screen, no code required
-- `dahu_order_notes_auto_patterns` filter for developers
+- `ubac_notes_auto_patterns` filter for developers
 - Works with both legacy order storage and High-Performance Order Storage
 - Never writes to the database; deactivating leaves no trace
 
@@ -63,7 +63,7 @@ non-breaking spaces, which French typography puts before every colon.
 1. Download the latest release, or clone this repository into
    `wp-content/plugins/`.
 2. Activate the plugin through the Plugins screen.
-3. Optionally adjust the colours under **WooCommerce → Dahu Order Notes**.
+3. Optionally adjust the colours under **WooCommerce → Ubac Order Notes**.
 
 Highlighting is on by default.
 
@@ -81,7 +81,7 @@ Highlighting is on by default.
 Add your own patterns, as complete PCRE expressions:
 
 ```php
-add_filter( 'dahu_order_notes_auto_patterns', function ( array $patterns ) {
+add_filter( 'ubac_notes_auto_patterns', function ( array $patterns ) {
     $patterns[] = '/^Tracking number added/i';
     return $patterns;
 } );
@@ -90,7 +90,7 @@ add_filter( 'dahu_order_notes_auto_patterns', function ( array $patterns ) {
 Change the admin screens the highlight applies to:
 
 ```php
-add_filter( 'dahu_order_notes_order_screens', function ( array $screens ) {
+add_filter( 'ubac_notes_order_screens', function ( array $screens ) {
     $screens[] = 'my_custom_order_screen';
     return $screens;
 } );
@@ -110,7 +110,7 @@ This plugin does not contact any external service.
 - Styles enqueued properly instead of printed in the admin head.
 - Colour values re-validated at output time.
 - Uninstall routine added, including multisite.
-- Marker class renamed to `dahu-auto-note`.
+- Marker class renamed to `ubac-auto-note`.
 
 ## License
 

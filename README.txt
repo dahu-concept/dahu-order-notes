@@ -1,5 +1,5 @@
 === Ubac Order Notes ===
-Contributors: dahuconcept
+Contributors: ubacconcept
 Tags: order notes, internal notes, customer notes, orders, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
@@ -23,7 +23,7 @@ is logged in*. Changing an order status from the admin screen produces a note
 attributed to that person, indistinguishable in the markup from a note they
 typed themselves.
 
-Dahu Order Notes identifies those and leaves the hand-written ones highlighted.
+Ubac Order Notes identifies those and leaves the hand-written ones highlighted.
 
 = How detection works =
 
@@ -48,7 +48,7 @@ trace.
 * Locale-independent detection, rebuilt from WooCommerce's own translations
 * Configurable highlight colours
 * Additional phrases configurable from the settings screen, no code needed
-* `dahu_order_notes_auto_patterns` filter for developers
+* `ubac_notes_auto_patterns` filter for developers
 * Works with both legacy order storage and High-Performance Order Storage
 
 = External services =
@@ -60,7 +60,7 @@ This plugin does not contact any external service.
 1. Upload the plugin folder to `/wp-content/plugins/`, or install it from the
    Plugins screen.
 2. Activate it through the Plugins screen.
-3. Go to WooCommerce > Dahu Order Notes to adjust the colours if you want to.
+3. Go to WooCommerce > Ubac Order Notes to adjust the colours if you want to.
 
 Highlighting is on by default; there is nothing to configure to get started.
 
@@ -73,8 +73,8 @@ translated strings, so the plugin adapts to the shop's locale on its own.
 
 = A plugin of mine adds notes that are not detected =
 
-Add the beginning of the note's text in WooCommerce > Dahu Order Notes, one phrase
-per line. Developers can use the `dahu_order_notes_auto_patterns` filter instead.
+Add the beginning of the note's text in WooCommerce > Ubac Order Notes, one phrase
+per line. Developers can use the `ubac_notes_auto_patterns` filter instead.
 
 = Does it modify my order notes? =
 
@@ -102,7 +102,7 @@ Yes.
 * Styles are enqueued properly instead of printed in the admin head.
 * Colour values are re-validated at output time.
 * Added an uninstall routine, including multisite.
-* Renamed the marker class to `dahu-auto-note` to avoid collisions.
+* Renamed the marker class to `ubac-auto-note` to avoid collisions.
 
 == Upgrade Notice ==
 

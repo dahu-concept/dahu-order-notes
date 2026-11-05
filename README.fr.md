@@ -1,4 +1,4 @@
-# Dahu Order Notes
+# Ubac Order Notes
 
 Fait ressortir les notes de commande WooCommerce qu'une personne a réellement
 écrites, parmi celles que WooCommerce et ses extensions ajoutent d'elles-mêmes.
@@ -22,7 +22,7 @@ pas distinguer, c'est la troisième catégorie : les notes produites par du code
 commande depuis l'administration produit une note attribuée à cette personne,
 indiscernable dans le balisage d'une note qu'elle aurait tapée elle-même.
 
-Dahu Order Notes repère celles-là, et laisse en évidence celles écrites à la
+Ubac Order Notes repère celles-là, et laisse en évidence celles écrites à la
 main.
 
 ## Comment la détection fonctionne
@@ -53,7 +53,7 @@ devant chaque deux-points.
   WooCommerce
 - Couleurs de mise en évidence configurables
 - Phrases supplémentaires configurables depuis l'écran de réglages, sans code
-- Filtre `dahu_order_notes_auto_patterns` pour les développeurs
+- Filtre `ubac_notes_auto_patterns` pour les développeurs
 - Fonctionne avec l'ancien stockage des commandes comme avec le HPOS
 - N'écrit jamais en base ; la désactivation ne laisse aucune trace
 
@@ -89,7 +89,7 @@ La mise en évidence est active par défaut.
 Ajouter vos propres motifs, en expressions PCRE complètes :
 
 ```php
-add_filter( 'dahu_order_notes_auto_patterns', function ( array $patterns ) {
+add_filter( 'ubac_notes_auto_patterns', function ( array $patterns ) {
     $patterns[] = '/^Numéro de suivi ajouté/i';
     return $patterns;
 } );
@@ -98,7 +98,7 @@ add_filter( 'dahu_order_notes_auto_patterns', function ( array $patterns ) {
 Changer les écrans d'administration où la mise en évidence s'applique :
 
 ```php
-add_filter( 'dahu_order_notes_order_screens', function ( array $screens ) {
+add_filter( 'ubac_notes_order_screens', function ( array $screens ) {
     $screens[] = 'mon_ecran_de_commande';
     return $screens;
 } );

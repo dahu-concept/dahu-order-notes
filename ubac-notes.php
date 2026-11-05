@@ -14,15 +14,15 @@
  * WC requires at least: 7.0
  * WC tested up to:   11.2
  *
- * @package DahuOrderNotes
+ * @package UbacNotes
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAHU_ORDER_NOTES_VERSION', '2.1.0' );
-define( 'DAHU_ORDER_NOTES_FILE', __FILE__ );
-define( 'DAHU_ORDER_NOTES_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DAHU_ORDER_NOTES_SETTINGS_PAGE', 'dahu-order-notes' );
+define( 'UBAC_NOTES_VERSION', '2.1.0' );
+define( 'UBAC_NOTES_FILE', __FILE__ );
+define( 'UBAC_NOTES_PATH', plugin_dir_path( __FILE__ ) );
+define( 'UBAC_NOTES_SETTINGS_PAGE', 'ubac-notes' );
 
 /* -------------------------------------------------------------------------
  * Translations
@@ -55,26 +55,26 @@ add_action(
  * Bootstrap
  * ---------------------------------------------------------------------- */
 
-add_action( 'plugins_loaded', 'dahu_order_notes_bootstrap' );
+add_action( 'plugins_loaded', 'ubac_notes_bootstrap' );
 
 /**
  * Load the plugin once WooCommerce is confirmed present.
  *
  * @return void
  */
-function dahu_order_notes_bootstrap() {
+function ubac_notes_bootstrap() {
 
 	if ( ! class_exists( 'WooCommerce' ) ) {
-		add_action( 'admin_notices', 'dahu_order_notes_missing_wc_notice' );
+		add_action( 'admin_notices', 'ubac_notes_missing_wc_notice' );
 		return;
 	}
 
-	require_once DAHU_ORDER_NOTES_PATH . 'includes/class-dahu-order-notes-settings.php';
-	require_once DAHU_ORDER_NOTES_PATH . 'includes/class-dahu-order-notes-detector.php';
-	require_once DAHU_ORDER_NOTES_PATH . 'includes/class-dahu-order-notes-highlighter.php';
+	require_once UBAC_NOTES_PATH . 'includes/class-ubac-notes-settings.php';
+	require_once UBAC_NOTES_PATH . 'includes/class-ubac-notes-detector.php';
+	require_once UBAC_NOTES_PATH . 'includes/class-ubac-notes-highlighter.php';
 
-	Dahu_Order_Notes_Settings::init();
-	Dahu_Order_Notes_Highlighter::init();
+	Ubac_Notes_Settings::init();
+	Ubac_Notes_Highlighter::init();
 }
 
 /**
@@ -82,7 +82,7 @@ function dahu_order_notes_bootstrap() {
  *
  * @return void
  */
-function dahu_order_notes_missing_wc_notice() {
+function ubac_notes_missing_wc_notice() {
 
 	if ( ! current_user_can( 'activate_plugins' ) ) {
 		return;
@@ -90,7 +90,7 @@ function dahu_order_notes_missing_wc_notice() {
 
 	printf(
 		'<div class="notice notice-error"><p>%s</p></div>',
-		esc_html__( 'Dahu Order Notes requires WooCommerce to be installed and active.', 'ubac-notes' )
+		esc_html__( 'Ubac Order Notes requires WooCommerce to be installed and active.', 'ubac-notes' )
 	);
 }
 
@@ -104,7 +104,7 @@ add_filter(
 
 		$settings = sprintf(
 			'<a href="%s">%s</a>',
-			esc_url( admin_url( 'admin.php?page=' . DAHU_ORDER_NOTES_SETTINGS_PAGE ) ),
+			esc_url( admin_url( 'admin.php?page=' . UBAC_NOTES_SETTINGS_PAGE ) ),
 			esc_html__( 'Settings', 'ubac-notes' )
 		);
 
@@ -152,7 +152,7 @@ add_filter(
  * Registered here rather than inside the admin include, because the
  * activation flag has to be set whatever else is loaded.
  */
-require_once DAHU_ORDER_NOTES_PATH . 'includes/dahu-welcome.php';
+require_once UBAC_NOTES_PATH . 'includes/ubac-welcome.php';
 
 /*
  * The flag, not a redirect: an activation hook that redirects breaks bulk
@@ -163,21 +163,21 @@ require_once DAHU_ORDER_NOTES_PATH . 'includes/dahu-welcome.php';
 register_activation_hook(
 	__FILE__,
 	static function () {
-		Dahu_Welcome::mark_activated( 'dahu-order-notes' );
+		Ubac_Welcome::mark_activated( 'ubac-notes' );
 	}
 );
 
 add_action(
 	'init',
 	static function () {
-		Dahu_Welcome::register(
+		Ubac_Welcome::register(
 			array(
-				'slug'       => 'dahu-order-notes',
+				'slug'       => 'ubac-notes',
 				'name'       => __( 'Order notes', 'ubac-notes' ),
 				'tagline'    => __( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'ubac-notes' ),
-				'file'       => DAHU_ORDER_NOTES_FILE,
-				'version'    => DAHU_ORDER_NOTES_VERSION,
-				'textdomain' => 'dahu-order-notes',
+				'file'       => UBAC_NOTES_FILE,
+				'version'    => UBAC_NOTES_VERSION,
+				'textdomain' => 'ubac-notes',
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
@@ -219,20 +219,20 @@ add_action(
 				 * screen always renders, whatever the saved options are: a step whose
 				 * target is missing is skipped without a sound.
 				 */
-				'tour_screen' => 'woocommerce_page_dahu-order-notes',
+				'tour_screen' => 'woocommerce_page_ubac-notes',
 				'tour'        => array(
 					array(
-						'selector' => 'input[name="dahu_order_notes_options[enabled]"]',
+						'selector' => 'input[name="ubac_notes_options[enabled]"]',
 						'title'    => __( 'Switch it on or off', 'ubac-notes' ),
 						'text'     => __( 'Hand-written private notes are highlighted while this is ticked.', 'ubac-notes' ),
 					),
 					array(
-						'selector' => '#dahu-order-notes-handwritten-bg',
+						'selector' => '#ubac-notes-handwritten-bg',
 						'title'    => __( 'Pick your colours', 'ubac-notes' ),
 						'text'     => __( 'One colour for your notes, one for the customer notes header.', 'ubac-notes' ),
 					),
 					array(
-						'selector' => '#dahu-order-notes-custom-prefixes',
+						'selector' => '#ubac-notes-custom-prefixes',
 						'title'    => __( 'Teach it your plugins', 'ubac-notes' ),
 						'text'     => __( 'One phrase per line: notes starting with it count as automatic.', 'ubac-notes' ),
 					),

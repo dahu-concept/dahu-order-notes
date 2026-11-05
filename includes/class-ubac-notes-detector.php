@@ -2,7 +2,7 @@
 /**
  * Detection of automatically generated order notes.
  *
- * @package DahuOrderNotes
+ * @package UbacNotes
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
  * WooCommerce's own translatable strings, so the plugin follows whatever
  * locale the shop runs in.
  */
-class Dahu_Order_Notes_Detector {
+class Ubac_Notes_Detector {
 
 	/**
 	 * Compiled regular expressions, built once per request.
@@ -154,7 +154,7 @@ class Dahu_Order_Notes_Detector {
 			}
 		}
 
-		foreach ( Dahu_Order_Notes_Settings::get_custom_prefixes() as $prefix ) {
+		foreach ( Ubac_Notes_Settings::get_custom_prefixes() as $prefix ) {
 			$patterns[] = '/^' . preg_quote( $prefix, '/' ) . '/i';
 		}
 
@@ -167,7 +167,7 @@ class Dahu_Order_Notes_Detector {
 		 *
 		 * @param string[] $patterns Compiled regular expressions.
 		 */
-		self::$patterns = (array) apply_filters( 'dahu_order_notes_auto_patterns', array_unique( $patterns ) );
+		self::$patterns = (array) apply_filters( 'ubac_notes_auto_patterns', array_unique( $patterns ) );
 
 		return self::$patterns;
 	}
@@ -206,7 +206,7 @@ class Dahu_Order_Notes_Detector {
 		}
 
 		// Swap placeholders for a sentinel that survives preg_quote untouched.
-		$sentinel = 'DAHUNOTESWILDCARD';
+		$sentinel = 'UBACNOTESWILDCARD';
 		$stripped = preg_replace( '/%(?:\d+\$)?[sd]/', $sentinel, $template );
 
 		if ( null === $stripped ) {

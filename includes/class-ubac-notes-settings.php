@@ -2,7 +2,7 @@
 /**
  * Settings screen.
  *
- * @package DahuOrderNotes
+ * @package UbacNotes
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -10,21 +10,21 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Stores and renders the plugin options.
  */
-class Dahu_Order_Notes_Settings {
+class Ubac_Notes_Settings {
 
 	/**
 	 * Option name.
 	 *
 	 * @var string
 	 */
-	const OPTION = 'dahu_order_notes_options';
+	const OPTION = 'ubac_notes_options';
 
 	/**
 	 * Settings group.
 	 *
 	 * @var string
 	 */
-	const GROUP = 'dahu_order_notes_group';
+	const GROUP = 'ubac_notes_group';
 
 	/**
 	 * Capability required to view and save the settings.
@@ -108,7 +108,7 @@ class Dahu_Order_Notes_Settings {
 			__( 'Order notes', 'ubac-notes' ),
 			__( 'Order notes', 'ubac-notes' ),
 			self::CAPABILITY,
-			DAHU_ORDER_NOTES_SETTINGS_PAGE,
+			UBAC_NOTES_SETTINGS_PAGE,
 			array( __CLASS__, 'render_page' )
 		);
 	}
@@ -121,7 +121,7 @@ class Dahu_Order_Notes_Settings {
 	 */
 	public static function enqueue_admin( $hook ) {
 
-		if ( 'woocommerce_page_' . DAHU_ORDER_NOTES_SETTINGS_PAGE !== $hook ) {
+		if ( 'woocommerce_page_' . UBAC_NOTES_SETTINGS_PAGE !== $hook ) {
 			return;
 		}
 
@@ -131,17 +131,17 @@ class Dahu_Order_Notes_Settings {
 		// file is byte-identical everywhere, so whichever plugin loads it
 		// first serves all of them.
 		wp_enqueue_style(
-			'dahu-ui',
-			plugins_url( 'assets/css/dahu-ui.css', DAHU_ORDER_NOTES_FILE ),
+			'ubac-ui',
+			plugins_url( 'assets/css/ubac-ui.css', UBAC_NOTES_FILE ),
 			array(),
-			DAHU_ORDER_NOTES_VERSION
+			UBAC_NOTES_VERSION
 		);
 
 		wp_enqueue_style(
-			'dahu-order-notes-admin',
-			plugins_url( 'assets/css/admin.css', DAHU_ORDER_NOTES_FILE ),
-			array( 'dahu-ui' ),
-			DAHU_ORDER_NOTES_VERSION
+			'ubac-notes-admin',
+			plugins_url( 'assets/css/admin.css', UBAC_NOTES_FILE ),
+			array( 'ubac-ui' ),
+			UBAC_NOTES_VERSION
 		);
 	}
 
@@ -224,10 +224,10 @@ class Dahu_Order_Notes_Settings {
 
 		$options = self::get();
 		?>
-		<div class="wrap dahu-ui">
-			<div class="dahu-ui-head">
-				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Order notes', 'ubac-notes' ); ?></h1>
-				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'ubac-notes' ); ?></p>
+		<div class="wrap ubac-ui">
+			<div class="ubac-ui-head">
+				<h1 class="ubac-ui-head__title"><?php esc_html_e( 'Order notes', 'ubac-notes' ); ?></h1>
+				<p class="ubac-ui-head__sub"><?php esc_html_e( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'ubac-notes' ); ?></p>
 			</div>
 
 			<hr class="wp-header-end">
@@ -235,7 +235,7 @@ class Dahu_Order_Notes_Settings {
 			<form method="post" action="options.php">
 				<?php settings_fields( self::GROUP ); ?>
 
-				<div class="dahu-ui-card">
+				<div class="ubac-ui-card">
 				<table class="form-table" role="presentation">
 					<tbody>
 						<tr>
@@ -252,38 +252,38 @@ class Dahu_Order_Notes_Settings {
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="dahu-order-notes-handwritten-bg">
+								<label for="ubac-notes-handwritten-bg">
 									<?php esc_html_e( 'Hand-written note colour', 'ubac-notes' ); ?>
 								</label>
 							</th>
 							<td>
 								<input type="color"
-									id="dahu-order-notes-handwritten-bg"
+									id="ubac-notes-handwritten-bg"
 									name="<?php echo esc_attr( self::OPTION ); ?>[handwritten_bg]"
 									value="<?php echo esc_attr( $options['handwritten_bg'] ); ?>" />
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="dahu-order-notes-customer-header-bg">
+								<label for="ubac-notes-customer-header-bg">
 									<?php esc_html_e( 'Customer note header colour', 'ubac-notes' ); ?>
 								</label>
 							</th>
 							<td>
 								<input type="color"
-									id="dahu-order-notes-customer-header-bg"
+									id="ubac-notes-customer-header-bg"
 									name="<?php echo esc_attr( self::OPTION ); ?>[customer_header_bg]"
 									value="<?php echo esc_attr( $options['customer_header_bg'] ); ?>" />
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="dahu-order-notes-custom-prefixes">
+								<label for="ubac-notes-custom-prefixes">
 									<?php esc_html_e( 'Additional automatic notes', 'ubac-notes' ); ?>
 								</label>
 							</th>
 							<td>
-								<textarea id="dahu-order-notes-custom-prefixes"
+								<textarea id="ubac-notes-custom-prefixes"
 									class="large-text code"
 									rows="6"
 									name="<?php echo esc_attr( self::OPTION ); ?>[custom_prefixes]"><?php echo esc_textarea( $options['custom_prefixes'] ); ?></textarea>
@@ -296,7 +296,7 @@ class Dahu_Order_Notes_Settings {
 				</table>
 				</div>
 
-				<?php submit_button( null, 'dahu-ui-btn dahu-ui-btn--go' ); ?>
+				<?php submit_button( null, 'ubac-ui-btn ubac-ui-btn--go' ); ?>
 			</form>
 		</div>
 		<?php

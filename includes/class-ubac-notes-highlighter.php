@@ -2,7 +2,7 @@
 /**
  * Order-screen highlighting.
  *
- * @package DahuOrderNotes
+ * @package UbacNotes
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -10,14 +10,14 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Tags automatic notes and injects the highlighting stylesheet.
  */
-class Dahu_Order_Notes_Highlighter {
+class Ubac_Notes_Highlighter {
 
 	/**
 	 * CSS class added to notes identified as automatic.
 	 *
 	 * @var string
 	 */
-	const AUTO_NOTE_CLASS = 'dahu-auto-note';
+	const AUTO_NOTE_CLASS = 'ubac-auto-note';
 
 	/**
 	 * Hook everything up.
@@ -49,7 +49,7 @@ class Dahu_Order_Notes_Highlighter {
 
 		$content = isset( $note->content ) ? $note->content : '';
 
-		if ( Dahu_Order_Notes_Detector::is_automatic( $content ) ) {
+		if ( Ubac_Notes_Detector::is_automatic( $content ) ) {
 			$css_class[] = self::AUTO_NOTE_CLASS;
 		}
 
@@ -84,7 +84,7 @@ class Dahu_Order_Notes_Highlighter {
 		 *
 		 * @param string[] $order_screens Screen identifiers.
 		 */
-		$order_screens = (array) apply_filters( 'dahu_order_notes_order_screens', $order_screens );
+		$order_screens = (array) apply_filters( 'ubac_notes_order_screens', $order_screens );
 
 		return in_array( $screen->id, $order_screens, true );
 	}
@@ -96,7 +96,7 @@ class Dahu_Order_Notes_Highlighter {
 	 */
 	public static function enqueue_styles() {
 
-		$options = Dahu_Order_Notes_Settings::get();
+		$options = Ubac_Notes_Settings::get();
 
 		if ( empty( $options['enabled'] ) || ! self::is_order_screen() ) {
 			return;
@@ -105,12 +105,12 @@ class Dahu_Order_Notes_Highlighter {
 		$handwritten = sanitize_hex_color( $options['handwritten_bg'] );
 		$customer    = sanitize_hex_color( $options['customer_header_bg'] );
 
-		$defaults    = Dahu_Order_Notes_Settings::defaults();
+		$defaults    = Ubac_Notes_Settings::defaults();
 		$handwritten = $handwritten ? $handwritten : $defaults['handwritten_bg'];
 		$customer    = $customer ? $customer : $defaults['customer_header_bg'];
 
-		wp_register_style( 'dahu-order-notes', false, array(), DAHU_ORDER_NOTES_VERSION );
-		wp_enqueue_style( 'dahu-order-notes' );
+		wp_register_style( 'ubac-notes', false, array(), UBAC_NOTES_VERSION );
+		wp_enqueue_style( 'ubac-notes' );
 
 		$css = sprintf(
 			/* Private notes a human typed: not a customer note, not a system note, not machine-generated. */
@@ -121,6 +121,6 @@ class Dahu_Order_Notes_Highlighter {
 			$customer
 		);
 
-		wp_add_inline_style( 'dahu-order-notes', $css );
+		wp_add_inline_style( 'ubac-notes', $css );
 	}
 }
