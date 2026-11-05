@@ -8,130 +8,130 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2026-10-24 10:16+0000\n"
-"X-Domain: dahu-order-notes\n"
+"X-Domain: ubac-notes\n"
 
-#: includes/class-dahu-order-notes-settings.php:282
+#: includes/class-ubac-notes-settings.php:282
 msgid "Additional automatic notes"
 msgstr ""
 
-#: dahu-order-notes.php:219
+#: ubac-notes.php:219
 msgid "Both are yours to set."
 msgstr ""
 
-#: dahu-order-notes.php:142
+#: ubac-notes.php:142
 msgid "By Hugo Vial-Jaime — Dahu-Concept"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:269
+#: includes/class-ubac-notes-settings.php:269
 msgid "Customer note header colour"
 msgstr ""
 
-#: dahu-order-notes.php:214
+#: ubac-notes.php:214
 msgid "Customer notes marked"
 msgstr ""
 
-#: dahu-order-notes.php:99
+#: ubac-notes.php:99
 msgid "Dahu Order Notes requires WooCommerce to be installed and active."
 msgstr ""
 
-#: dahu-order-notes.php:203
+#: ubac-notes.php:203
 msgid "Done"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:256
+#: includes/class-ubac-notes-settings.php:256
 msgid "Hand-written note colour"
 msgstr ""
 
-#: dahu-order-notes.php:233
+#: ubac-notes.php:233
 msgid "Hand-written private notes are highlighted while this is ticked."
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:249
+#: includes/class-ubac-notes-settings.php:249
 msgid "Highlight hand-written private notes"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:242
+#: includes/class-ubac-notes-settings.php:242
 msgid "Highlighting"
 msgstr ""
 
-#: dahu-order-notes.php:183 includes/class-dahu-order-notes-settings.php:230
+#: ubac-notes.php:183 includes/class-ubac-notes-settings.php:230
 msgid "Makes the notes a human wrote stand out from the ones the shop generated."
 msgstr ""
 
-#: dahu-order-notes.php:202
+#: ubac-notes.php:202
 msgid "Next"
 msgstr ""
 
-#: dahu-order-notes.php:238
+#: ubac-notes.php:238
 msgid "One colour for your notes, one for the customer notes header."
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:291
+#: includes/class-ubac-notes-settings.php:291
 msgid "One per line. A note starting with one of these phrases is treated as automatic."
 msgstr ""
 
-#: dahu-order-notes.php:243
+#: ubac-notes.php:243
 msgid "One phrase per line: notes starting with it count as automatic."
 msgstr ""
 
-#: dahu-order-notes.php:182 includes/class-dahu-order-notes-settings.php:108 includes/class-dahu-order-notes-settings.php:109 includes/class-dahu-order-notes-settings.php:229
+#: ubac-notes.php:182 includes/class-ubac-notes-settings.php:108 includes/class-ubac-notes-settings.php:109 includes/class-ubac-notes-settings.php:229
 msgid "Order notes"
 msgstr ""
 
-#: dahu-order-notes.php:237
+#: ubac-notes.php:237
 msgid "Pick your colours"
 msgstr ""
 
-#: dahu-order-notes.php:147
+#: ubac-notes.php:147
 msgid "Plugin website"
 msgstr ""
 
-#: dahu-order-notes.php:211
+#: ubac-notes.php:211
 msgid "Private notes somebody typed are highlighted."
 msgstr ""
 
-#: dahu-order-notes.php:114
+#: ubac-notes.php:114
 msgid "Settings"
 msgstr ""
 
-#: dahu-order-notes.php:204
+#: ubac-notes.php:204
 msgid "Skip"
 msgstr ""
 
-#: dahu-order-notes.php:232
+#: ubac-notes.php:232
 msgid "Switch it on or off"
 msgstr ""
 
-#: dahu-order-notes.php:242
+#: ubac-notes.php:242
 msgid "Teach it your plugins"
 msgstr ""
 
-#: dahu-order-notes.php:215
+#: ubac-notes.php:215
 msgid "The ones the customer can see are told apart at a glance."
 msgstr ""
 
 #. translators: %s: plugin version number. */
-#: dahu-order-notes.php:136
+#: ubac-notes.php:136
 msgid "Version %s"
 msgstr ""
 
-#: includes/class-dahu-order-notes-settings.php:222
+#: includes/class-ubac-notes-settings.php:222
 msgid "You are not allowed to access this page."
 msgstr ""
 
-#: dahu-order-notes.php:206
+#: ubac-notes.php:206
 msgid "You are not allowed to view this page."
 msgstr ""
 
-#: dahu-order-notes.php:218
+#: ubac-notes.php:218
 msgid "Your colours"
 msgstr ""
 
-#: dahu-order-notes.php:210
+#: ubac-notes.php:210
 msgid "Yours first"
 msgstr ""
 
-#: dahu-order-notes.php:205
+#: ubac-notes.php:205
 msgid "of"
 msgstr ""
 

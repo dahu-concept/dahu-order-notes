@@ -1,4 +1,4 @@
-=== Dahu Order Notes ===
+=== Ubac Order Notes ===
 Contributors: dahuconcept
 Tags: order notes, internal notes, customer notes, orders, woocommerce
 Requires at least: 6.0

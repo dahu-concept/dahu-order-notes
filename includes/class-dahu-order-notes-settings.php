@@ -105,8 +105,8 @@ class Dahu_Order_Notes_Settings {
 	public static function register_menu() {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Order notes', 'dahu-order-notes' ),
-			__( 'Order notes', 'dahu-order-notes' ),
+			__( 'Order notes', 'ubac-notes' ),
+			__( 'Order notes', 'ubac-notes' ),
 			self::CAPABILITY,
 			DAHU_ORDER_NOTES_SETTINGS_PAGE,
 			array( __CLASS__, 'render_page' )
@@ -219,15 +219,15 @@ class Dahu_Order_Notes_Settings {
 	public static function render_page() {
 
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You are not allowed to access this page.', 'dahu-order-notes' ) );
+			wp_die( esc_html__( 'You are not allowed to access this page.', 'ubac-notes' ) );
 		}
 
 		$options = self::get();
 		?>
 		<div class="wrap dahu-ui">
 			<div class="dahu-ui-head">
-				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Order notes', 'dahu-order-notes' ); ?></h1>
-				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'dahu-order-notes' ); ?></p>
+				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Order notes', 'ubac-notes' ); ?></h1>
+				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'ubac-notes' ); ?></p>
 			</div>
 
 			<hr class="wp-header-end">
@@ -239,21 +239,21 @@ class Dahu_Order_Notes_Settings {
 				<table class="form-table" role="presentation">
 					<tbody>
 						<tr>
-							<th scope="row"><?php esc_html_e( 'Highlighting', 'dahu-order-notes' ); ?></th>
+							<th scope="row"><?php esc_html_e( 'Highlighting', 'ubac-notes' ); ?></th>
 							<td>
 								<label>
 									<input type="checkbox"
 										name="<?php echo esc_attr( self::OPTION ); ?>[enabled]"
 										value="1"
 										<?php checked( $options['enabled'], 1 ); ?> />
-									<?php esc_html_e( 'Highlight hand-written private notes', 'dahu-order-notes' ); ?>
+									<?php esc_html_e( 'Highlight hand-written private notes', 'ubac-notes' ); ?>
 								</label>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
 								<label for="dahu-order-notes-handwritten-bg">
-									<?php esc_html_e( 'Hand-written note colour', 'dahu-order-notes' ); ?>
+									<?php esc_html_e( 'Hand-written note colour', 'ubac-notes' ); ?>
 								</label>
 							</th>
 							<td>
@@ -266,7 +266,7 @@ class Dahu_Order_Notes_Settings {
 						<tr>
 							<th scope="row">
 								<label for="dahu-order-notes-customer-header-bg">
-									<?php esc_html_e( 'Customer note header colour', 'dahu-order-notes' ); ?>
+									<?php esc_html_e( 'Customer note header colour', 'ubac-notes' ); ?>
 								</label>
 							</th>
 							<td>
@@ -279,7 +279,7 @@ class Dahu_Order_Notes_Settings {
 						<tr>
 							<th scope="row">
 								<label for="dahu-order-notes-custom-prefixes">
-									<?php esc_html_e( 'Additional automatic notes', 'dahu-order-notes' ); ?>
+									<?php esc_html_e( 'Additional automatic notes', 'ubac-notes' ); ?>
 								</label>
 							</th>
 							<td>
@@ -288,7 +288,7 @@ class Dahu_Order_Notes_Settings {
 									rows="6"
 									name="<?php echo esc_attr( self::OPTION ); ?>[custom_prefixes]"><?php echo esc_textarea( $options['custom_prefixes'] ); ?></textarea>
 								<p class="description">
-									<?php esc_html_e( 'One per line. A note starting with one of these phrases is treated as automatic.', 'dahu-order-notes' ); ?>
+									<?php esc_html_e( 'One per line. A note starting with one of these phrases is treated as automatic.', 'ubac-notes' ); ?>
 								</p>
 							</td>
 						</tr>
