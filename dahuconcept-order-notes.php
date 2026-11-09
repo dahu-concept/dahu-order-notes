@@ -163,7 +163,7 @@ require_once UBAC_NOTES_PATH . 'includes/ubac-welcome.php';
 register_activation_hook(
 	__FILE__,
 	static function () {
-		Ubac_Welcome::mark_activated( 'ubac-notes' );
+		Ubac_Welcome::mark_activated( 'dahuconcept-order-notes' );
 	}
 );
 
@@ -172,12 +172,12 @@ add_action(
 	static function () {
 		Ubac_Welcome::register(
 			array(
-				'slug'       => 'ubac-notes',
+				'slug'       => 'dahuconcept-order-notes',
 				'name'       => __( 'Order notes', 'dahuconcept-order-notes' ),
 				'tagline'    => __( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'dahuconcept-order-notes' ),
 				'file'       => UBAC_NOTES_FILE,
 				'version'    => UBAC_NOTES_VERSION,
-				'textdomain' => 'ubac-notes',
+				'textdomain' => 'dahuconcept-order-notes',
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
