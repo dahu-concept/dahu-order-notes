@@ -1,4 +1,4 @@
-# Ubac Order Notes
+# DahuConcept Order Notes
 
 Fait ressortir les notes de commande WooCommerce qu'une personne a réellement
 écrites, parmi celles que WooCommerce et ses extensions ajoutent d'elles-mêmes.
@@ -22,7 +22,7 @@ pas distinguer, c'est la troisième catégorie : les notes produites par du code
 commande depuis l'administration produit une note attribuée à cette personne,
 indiscernable dans le balisage d'une note qu'elle aurait tapée elle-même.
 
-Ubac Order Notes repère celles-là, et laisse en évidence celles écrites à la
+DahuConcept Order Notes repère celles-là, et laisse en évidence celles écrites à la
 main.
 
 ## Comment la détection fonctionne

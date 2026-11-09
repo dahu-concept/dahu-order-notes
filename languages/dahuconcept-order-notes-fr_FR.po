@@ -1,23 +1,23 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: ubac-notes\n"
+"Project-Id-Version: dahuconcept-order-notes\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"PO-Revision-Date: 2026-10-24 10:16+0000\n"
+"PO-Revision-Date: 2026-11-09 07:30+0000\n"
 "X-Generator: ubac i18n-build\n"
 
 #: includes/class-ubac-notes-settings.php:282
 msgid "Additional automatic notes"
 msgstr "Notes automatiques supplémentaires"
 
-#: ubac-notes.php:219
+#: dahuconcept-order-notes.php:213
 msgid "Both are yours to set."
 msgstr "Les deux sont à régler par vous."
 
-#: ubac-notes.php:142
+#: dahuconcept-order-notes.php:136
 msgid "By Hugo Vial-Jaime — Dahu-Concept"
 msgstr "Par Hugo Vial-Jaime — Dahu-Concept"
 
@@ -25,15 +25,15 @@ msgstr "Par Hugo Vial-Jaime — Dahu-Concept"
 msgid "Customer note header colour"
 msgstr "Couleur de l’en-tête des notes client"
 
-#: ubac-notes.php:214
+#: dahuconcept-order-notes.php:208
 msgid "Customer notes marked"
 msgstr "Notes client repérées"
 
-#: ubac-notes.php:99
-msgid "Ubac Order Notes requires WooCommerce to be installed and active."
-msgstr "Ubac Order Notes nécessite que WooCommerce soit installé et actif."
+#: dahuconcept-order-notes.php:93
+msgid "DahuConcept Order Notes requires WooCommerce to be installed and active."
+msgstr "DahuConcept Order Notes nécessite que WooCommerce soit installé et actif."
 
-#: ubac-notes.php:203
+#: dahuconcept-order-notes.php:197
 msgid "Done"
 msgstr "Terminé"
 
@@ -41,7 +41,7 @@ msgstr "Terminé"
 msgid "Hand-written note colour"
 msgstr "Couleur des notes écrites à la main"
 
-#: ubac-notes.php:233
+#: dahuconcept-order-notes.php:227
 msgid "Hand-written private notes are highlighted while this is ticked."
 msgstr "Les notes privées écrites à la main sont mises en évidence tant que c'est coché."
 
@@ -53,15 +53,15 @@ msgstr "Mettre en évidence les notes privées écrites à la main"
 msgid "Highlighting"
 msgstr "Mise en évidence"
 
-#: ubac-notes.php:183 includes/class-ubac-notes-settings.php:230
+#: dahuconcept-order-notes.php:177 includes/class-ubac-notes-settings.php:230
 msgid "Makes the notes a human wrote stand out from the ones the shop generated."
 msgstr "Distingue les notes écrites par un humain de celles que la boutique génère."
 
-#: ubac-notes.php:202
+#: dahuconcept-order-notes.php:196
 msgid "Next"
 msgstr "Suivant"
 
-#: ubac-notes.php:238
+#: dahuconcept-order-notes.php:232
 msgid "One colour for your notes, one for the customer notes header."
 msgstr "Une couleur pour vos notes, une pour l'en-tête des notes client."
 
@@ -69,48 +69,48 @@ msgstr "Une couleur pour vos notes, une pour l'en-tête des notes client."
 msgid "One per line. A note starting with one of these phrases is treated as automatic."
 msgstr "Une par ligne. Une note qui commence par l'une de ces phrases compte comme automatique."
 
-#: ubac-notes.php:243
+#: dahuconcept-order-notes.php:237
 msgid "One phrase per line: notes starting with it count as automatic."
 msgstr "Une phrase par ligne : les notes qui commencent par elle comptent comme automatiques."
 
-#: ubac-notes.php:182 includes/class-ubac-notes-settings.php:108 includes/class-ubac-notes-settings.php:109 includes/class-ubac-notes-settings.php:229
+#: dahuconcept-order-notes.php:176 includes/class-ubac-notes-settings.php:108 includes/class-ubac-notes-settings.php:109 includes/class-ubac-notes-settings.php:229
 msgid "Order notes"
 msgstr "Notes de commande"
 
-#: ubac-notes.php:237
+#: dahuconcept-order-notes.php:231
 msgid "Pick your colours"
 msgstr "Choisissez vos couleurs"
 
-#: ubac-notes.php:147
+#: dahuconcept-order-notes.php:141
 msgid "Plugin website"
 msgstr "Site de l’extension"
 
-#: ubac-notes.php:211
+#: dahuconcept-order-notes.php:205
 msgid "Private notes somebody typed are highlighted."
 msgstr "Les notes privées saisies par quelqu’un sont mises en évidence."
 
-#: ubac-notes.php:114
+#: dahuconcept-order-notes.php:108
 msgid "Settings"
 msgstr "Réglages"
 
-#: ubac-notes.php:204
+#: dahuconcept-order-notes.php:198
 msgid "Skip"
 msgstr "Passer"
 
-#: ubac-notes.php:232
+#: dahuconcept-order-notes.php:226
 msgid "Switch it on or off"
 msgstr "Activez ou désactivez"
 
-#: ubac-notes.php:242
+#: dahuconcept-order-notes.php:236
 msgid "Teach it your plugins"
 msgstr "Apprenez-lui vos extensions"
 
-#: ubac-notes.php:215
+#: dahuconcept-order-notes.php:209
 msgid "The ones the customer can see are told apart at a glance."
 msgstr "Celles que le client voit se distinguent d’un coup d’œil."
 
 #. translators: %s: plugin version number. */
-#: ubac-notes.php:136
+#: dahuconcept-order-notes.php:130
 msgid "Version %s"
 msgstr "Version %s"
 
@@ -118,19 +118,19 @@ msgstr "Version %s"
 msgid "You are not allowed to access this page."
 msgstr "Vous n’avez pas l’autorisation d’accéder à cette page."
 
-#: ubac-notes.php:206
+#: dahuconcept-order-notes.php:200
 msgid "You are not allowed to view this page."
 msgstr "Vous n’avez pas l’autorisation de voir cette page."
 
-#: ubac-notes.php:218
+#: dahuconcept-order-notes.php:212
 msgid "Your colours"
 msgstr "Vos couleurs"
 
-#: ubac-notes.php:210
+#: dahuconcept-order-notes.php:204
 msgid "Yours first"
 msgstr "Les vôtres d’abord"
 
-#: ubac-notes.php:205
+#: dahuconcept-order-notes.php:199
 msgid "of"
 msgstr "sur"
 

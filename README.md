@@ -1,4 +1,4 @@
-# Ubac Order Notes
+# DahuConcept Order Notes
 
 Makes the WooCommerce order notes a person actually wrote stand out from the
 ones WooCommerce and its extensions generate on their own.
@@ -18,7 +18,7 @@ member is logged in*. Changing an order status from the admin screen produces a
 note attributed to that person, indistinguishable in the markup from a note they
 typed themselves.
 
-Ubac Order Notes identifies those, and leaves the hand-written ones highlighted.
+DahuConcept Order Notes identifies those, and leaves the hand-written ones highlighted.
 
 ## How detection works
 
@@ -63,7 +63,7 @@ non-breaking spaces, which French typography puts before every colon.
 1. Download the latest release, or clone this repository into
    `wp-content/plugins/`.
 2. Activate the plugin through the Plugins screen.
-3. Optionally adjust the colours under **WooCommerce → Ubac Order Notes**.
+3. Optionally adjust the colours under **WooCommerce → DahuConcept Order Notes**.
 
 Highlighting is on by default.
 

@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:       Ubac Order Notes
+ * Plugin Name:       DahuConcept Order Notes
  * Description:       Visually separates the order notes a human actually wrote from the ones WooCommerce and its extensions generate automatically.
  * Version:           2.1.0
  * Author:            Hugo Vial-Jaime
  * Author URI:        https://dahu-concept.fr
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       ubac-notes
+ * Text Domain:       dahuconcept-order-notes
  * Domain Path:       /languages
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -90,7 +90,7 @@ function ubac_notes_missing_wc_notice() {
 
 	printf(
 		'<div class="notice notice-error"><p>%s</p></div>',
-		esc_html__( 'Ubac Order Notes requires WooCommerce to be installed and active.', 'ubac-notes' )
+		esc_html__( 'DahuConcept Order Notes requires WooCommerce to be installed and active.', 'dahuconcept-order-notes' )
 	);
 }
 
@@ -105,7 +105,7 @@ add_filter(
 		$settings = sprintf(
 			'<a href="%s">%s</a>',
 			esc_url( admin_url( 'admin.php?page=' . UBAC_NOTES_SETTINGS_PAGE ) ),
-			esc_html__( 'Settings', 'ubac-notes' )
+			esc_html__( 'Settings', 'dahuconcept-order-notes' )
 		);
 
 		array_unshift( $links, $settings );
@@ -127,18 +127,18 @@ add_filter(
 		return array(
 			sprintf(
 				/* translators: %s: plugin version number. */
-				esc_html__( 'Version %s', 'ubac-notes' ),
+				esc_html__( 'Version %s', 'dahuconcept-order-notes' ),
 				esc_html( $header['Version'] )
 			),
 			sprintf(
 				'<a href="%s" target="_blank" rel="noopener">%s</a>',
 				esc_url( 'https://dahu-concept.fr' ),
-				esc_html__( 'By Hugo Vial-Jaime — Dahu-Concept', 'ubac-notes' )
+				esc_html__( 'By Hugo Vial-Jaime — Dahu-Concept', 'dahuconcept-order-notes' )
 			),
 			sprintf(
 				'<a href="%s" target="_blank" rel="noopener">%s</a>',
 				esc_url( 'https://dahu-concept.fr' ),
-				esc_html__( 'Plugin website', 'ubac-notes' )
+				esc_html__( 'Plugin website', 'dahuconcept-order-notes' )
 			),
 		);
 	},
@@ -173,8 +173,8 @@ add_action(
 		Ubac_Welcome::register(
 			array(
 				'slug'       => 'ubac-notes',
-				'name'       => __( 'Order notes', 'ubac-notes' ),
-				'tagline'    => __( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'ubac-notes' ),
+				'name'       => __( 'Order notes', 'dahuconcept-order-notes' ),
+				'tagline'    => __( 'Makes the notes a human wrote stand out from the ones the shop generated.', 'dahuconcept-order-notes' ),
 				'file'       => UBAC_NOTES_FILE,
 				'version'    => UBAC_NOTES_VERSION,
 				'textdomain' => 'ubac-notes',
@@ -193,24 +193,24 @@ add_action(
 				 * no text domain of its own.
 				 */
 				'strings'    => array(
-					'next'   => __( 'Next', 'ubac-notes' ),
-					'done'   => __( 'Done', 'ubac-notes' ),
-					'skip'   => __( 'Skip', 'ubac-notes' ),
-					'of'     => __( 'of', 'ubac-notes' ),
-					'denied' => __( 'You are not allowed to view this page.', 'ubac-notes' ),
+					'next'   => __( 'Next', 'dahuconcept-order-notes' ),
+					'done'   => __( 'Done', 'dahuconcept-order-notes' ),
+					'skip'   => __( 'Skip', 'dahuconcept-order-notes' ),
+					'of'     => __( 'of', 'dahuconcept-order-notes' ),
+					'denied' => __( 'You are not allowed to view this page.', 'dahuconcept-order-notes' ),
 				),
 				'points'     => array(
 				array(
-					'title' => __( 'Yours first', 'ubac-notes' ),
-					'text'  => __( 'Private notes somebody typed are highlighted.', 'ubac-notes' ),
+					'title' => __( 'Yours first', 'dahuconcept-order-notes' ),
+					'text'  => __( 'Private notes somebody typed are highlighted.', 'dahuconcept-order-notes' ),
 				),
 				array(
-					'title' => __( 'Customer notes marked', 'ubac-notes' ),
-					'text'  => __( 'The ones the customer can see are told apart at a glance.', 'ubac-notes' ),
+					'title' => __( 'Customer notes marked', 'dahuconcept-order-notes' ),
+					'text'  => __( 'The ones the customer can see are told apart at a glance.', 'dahuconcept-order-notes' ),
 				),
 				array(
-					'title' => __( 'Your colours', 'ubac-notes' ),
-					'text'  => __( 'Both are yours to set.', 'ubac-notes' ),
+					'title' => __( 'Your colours', 'dahuconcept-order-notes' ),
+					'text'  => __( 'Both are yours to set.', 'dahuconcept-order-notes' ),
 				),
 				),
 
@@ -223,18 +223,18 @@ add_action(
 				'tour'        => array(
 					array(
 						'selector' => 'input[name="ubac_notes_options[enabled]"]',
-						'title'    => __( 'Switch it on or off', 'ubac-notes' ),
-						'text'     => __( 'Hand-written private notes are highlighted while this is ticked.', 'ubac-notes' ),
+						'title'    => __( 'Switch it on or off', 'dahuconcept-order-notes' ),
+						'text'     => __( 'Hand-written private notes are highlighted while this is ticked.', 'dahuconcept-order-notes' ),
 					),
 					array(
 						'selector' => '#ubac-notes-handwritten-bg',
-						'title'    => __( 'Pick your colours', 'ubac-notes' ),
-						'text'     => __( 'One colour for your notes, one for the customer notes header.', 'ubac-notes' ),
+						'title'    => __( 'Pick your colours', 'dahuconcept-order-notes' ),
+						'text'     => __( 'One colour for your notes, one for the customer notes header.', 'dahuconcept-order-notes' ),
 					),
 					array(
 						'selector' => '#ubac-notes-custom-prefixes',
-						'title'    => __( 'Teach it your plugins', 'ubac-notes' ),
-						'text'     => __( 'One phrase per line: notes starting with it count as automatic.', 'ubac-notes' ),
+						'title'    => __( 'Teach it your plugins', 'dahuconcept-order-notes' ),
+						'text'     => __( 'One phrase per line: notes starting with it count as automatic.', 'dahuconcept-order-notes' ),
 					),
 				),
 			)
