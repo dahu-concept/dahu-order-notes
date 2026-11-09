@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       DahuConcept Order Notes
+ * Plugin Name:       DahuConcept Order Notes for WooCommerce
  * Description:       Visually separates the order notes a human actually wrote from the ones WooCommerce and its extensions generate automatically.
  * Version:           2.1.0
  * Author:            Hugo Vial-Jaime

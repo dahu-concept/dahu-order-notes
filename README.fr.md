@@ -1,4 +1,4 @@
-# DahuConcept Order Notes
+# DahuConcept Order Notes for WooCommerce
 
 Fait ressortir les notes de commande WooCommerce qu'une personne a réellement
 écrites, parmi celles que WooCommerce et ses extensions ajoutent d'elles-mêmes.
