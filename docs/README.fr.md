@@ -33,8 +33,13 @@ donc ses motifs à l'exécution, à partir des chaînes traduisibles de WooComme
 lui-même :
 
 ```php
-__( 'Order status changed from %1$s to %2$s.', 'woocommerce' )
+get_translations_for_domain( 'woocommerce' )
+    ->translate( 'Order status changed from %1$s to %2$s.' )
 ```
+
+Une lecture de catalogue, et non un appel de traduction : ces chaînes ne sont
+pas celles de cette extension. Tous ses appels de traduction nomment son
+propre domaine, comme le répertoire l'exige.
 
 Les marqueurs deviennent des jokers, le reste est comparé littéralement. Une
 boutique française reconnaît donc « État de la commande modifié de … », une

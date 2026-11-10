@@ -30,7 +30,7 @@ Document interne, en français.
 
 | Élément | Avant (Annad) | Après (public) |
 |---|---|---|
-| Détection des notes auto | 17 regex françaises en dur, dont des motifs d'extensions spécifiques (Chronopost, Sendcloud, PDF Invoices) | Motifs reconstruits à l'exécution depuis les chaînes traduisibles de WooCommerce (`__( 'Order status changed from %1$s to %2$s.', 'woocommerce' )`), placeholders convertis en jokers |
+| Détection des notes auto | 17 regex françaises en dur, dont des motifs d'extensions spécifiques (Chronopost, Sendcloud, PDF Invoices) | Motifs reconstruits à l'exécution en lisant le catalogue de WooCommerce (`get_translations_for_domain( 'woocommerce' )->translate( … )`), placeholders convertis en jokers. Les 27 appels `__( …, 'woocommerce' )` d'origine ont été refusés par la revue du répertoire le 10/11/2026 : un appel de traduction doit nommer le domaine de sa propre extension |
 | Extensibilité | Filtre `dahu_notes_highlight_auto_patterns` seulement | Filtre renommé `dahu_order_notes_auto_patterns` **plus** un champ de réglages « Additional automatic notes » (texte brut, une phrase par ligne) pour les non-développeurs |
 | Écrans concernés | Liste en dur | Filtre `dahu_order_notes_order_screens` |
 | Injection CSS | `<style>` écrit dans `admin_head` | `wp_register_style` + `wp_add_inline_style` sur `admin_enqueue_scripts` |
@@ -125,7 +125,8 @@ le repérage des notes manuscrites lors du traitement d'une commande.
   lignes&nbsp;: ». Résolu par la normalisation systématique.
 - **Confusion avec les notes déjà catégorisées.** Il faut sortir tôt si la note
   est déjà `customer-note` ou `system-note`, sous peine de la marquer à tort.
-- **Piège d'initialisation.** `__( …, 'woocommerce' )` doit être appelé après
-  `init`, sinon la traduction n'est pas chargée et les motifs sortent en
-  anglais. D'où la compilation paresseuse avec cache statique dans
+- **Piège d'initialisation.** Le catalogue de WooCommerce doit être interrogé
+  après `init`, sinon il n'est pas encore chargé et les motifs sortent en
+  anglais. Le piège est le même qu'avec l'ancien `__( …, 'woocommerce' )` : il
+  porte sur le moment, pas sur la fonction. D'où la compilation paresseuse avec cache statique dans
   `Dahu_Order_Notes_Detector::get_patterns()`, jamais au chargement du fichier.

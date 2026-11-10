@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       DahuConcept Order Notes for WooCommerce
  * Description:       Visually separates the order notes a human actually wrote from the ones WooCommerce and its extensions generate automatically.
- * Version:           2.1.0
+ * Version:           2.1.1
  * Author:            Hugo Vial-Jaime
  * Author URI:        https://dahu-concept.fr
  * License:           MIT
@@ -19,7 +19,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'UBAC_NOTES_VERSION', '2.1.0' );
+define( 'UBAC_NOTES_VERSION', '2.1.1' );
 define( 'UBAC_NOTES_FILE', __FILE__ );
 define( 'UBAC_NOTES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UBAC_NOTES_SETTINGS_PAGE', 'ubac-notes' );

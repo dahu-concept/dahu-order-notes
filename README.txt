@@ -4,7 +4,7 @@ Tags: order notes, internal notes, customer notes, orders, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -90,6 +90,11 @@ Yes.
 2. The settings screen.
 
 == Changelog ==
+
+= 2.1.1 =
+* Fixed: every translation call now names this plugin's own text domain. Recognising WooCommerce's automatic order notes means reading WooCommerce's own wordings in the shop's language, and that was done with 27 calls naming WooCommerce's text domain. The directory's review refused it, rightly: a plugin's translation calls must name its own domain, which is what lets the community translate it. The wordings are now read from WooCommerce's catalogue directly, which says the same thing without a translation call — and is the more honest shape, since looking up someone else's catalogue is exactly what happens.
+* Detection in a translated shop is unchanged, and now proven in both directions: a French note is recognised when WooCommerce's catalogue is French, an English note when no catalogue is loaded, a hand-written note in neither case. A canary feeds the detector a nonsense catalogue and requires the French note to stop being recognised, so the proof cannot pass while the catalogue is ignored.
+* Each of those wordings used to be written twice on its line, once as the array key and once inside the translation call, to satisfy the gettext parser. The duplication is gone with the calls.
 
 = 2.1.0 =
 * The activation screen now opens on the plugin's own mark rather than its initials, and the banner carries the same drawing as a watermark.

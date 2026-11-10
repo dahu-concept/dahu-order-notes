@@ -24,11 +24,16 @@ DahuConcept Order Notes identifies those, and leaves the hand-written ones highl
 
 Automatic notes can only be recognised by their wording. Hardcoding that wording
 would tie the plugin to one language, so instead it rebuilds its patterns at
-runtime from WooCommerce's own translatable strings:
+runtime by reading WooCommerce's own catalogue:
 
 ```php
-__( 'Order status changed from %1$s to %2$s.', 'woocommerce' )
+get_translations_for_domain( 'woocommerce' )
+    ->translate( 'Order status changed from %1$s to %2$s.' )
 ```
+
+A catalogue lookup rather than a translation call, because these are not this
+plugin's strings: every translation call here names this plugin's own text
+domain, as the directory requires.
 
 Placeholders become wildcards, the rest is matched literally. A French shop
 therefore matches `État de la commande modifié de …`, a German one
