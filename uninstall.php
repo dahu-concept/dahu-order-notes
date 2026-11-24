@@ -15,10 +15,10 @@ delete_option( 'ubac_notes_options' );
 // would never greet anybody again — the screen and the guided tour staying
 // silent for good, with nothing on screen to explain why.
 delete_option( 'ubac_welcome_seen_ubac-notes' );
-// Les memes clefs sous le nouveau slug : elle est construite au runtime
-// a partir du slug, donc elle a change avec lui. Sans ces trois lignes,
-// une mise a jour depuis la version Ubac laisse des orphelines que plus
-// rien ne nomme.
+// The same keys under the new slug: the key is built at runtime from the
+// slug, so it changed when the slug did. Without these three lines, an
+// update from the Ubac-named version leaves orphans that nothing names
+// any more.
 delete_option( 'ubac_welcome_seen_dahuconcept-order-notes' );
 delete_option( 'ubac_welcome_pending_ubac-notes' );
 delete_option( 'ubac_welcome_pending_dahuconcept-order-notes' );
