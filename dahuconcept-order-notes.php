@@ -11,6 +11,7 @@
  * Domain Path:       /languages
  * Requires at least: 6.0
  * Requires PHP:      7.4
+ * Requires Plugins: woocommerce
  * WC requires at least: 7.0
  * WC tested up to:   11.2
  *
